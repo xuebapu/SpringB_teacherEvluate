@@ -3,6 +3,7 @@ package com.cqgc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +34,7 @@ public class CrossFilter implements Filter {
                 "Origin, X-Requested-With, Content-Type, Accept, Connection, User-Agent, Cookie");
         httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
         httpResponse.setHeader("Content-type", "application/json");
+        httpResponse.setHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
         httpResponse.setHeader("Cache-Control", "no-cache, must-revalidate");
         chain.doFilter(request, httpResponse);
     }
